@@ -6,4 +6,6 @@ The project consisted of 4 parts saved under different folders
 3. bZIP tests folder; All codes and protocol (in README.md) concerning scoring of the bZIPs and testing
 4. Gnetic algorithm and analysis folder; All codes and protocol (in README.md) concerning the genetic algorithm and analysis of the final population
 
+The Input and Output folder contain the Input for all scripts and output for all scripts. For all scripts the E:/DENV_dimer_project/Input or E:/DENV_dimer_project/Output folder was used.
+
 The unused script folder contains scripts that were not used for the end product as their method did not work. This contains filed concerning HADDOCK, PRODIGY and MEME and SAMcc database
