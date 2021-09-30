@@ -1,0 +1,28 @@
+Protocol to run the genetic algorithm and score it
+
+Step 1: fill in the desired population number, register, length, number of iterations, r_cross, r_mut and PCCneg_sel_weight (does nothing)
+Step 2: change the runname to save the run without overwriting it
+Step 3: run the genetic algorithm, for every generation it prints the best sequence with a score. The end population is saved as fasta
+
+Analysis (Marcoil and Logicoil) (ON LINUX)
+Step 0 (if not on LINUX computer): transfer the fasta file in the folder genetic algorithm output called <run_name> to a LINUX computer with marcoil
+Step 1: navigate to the marcoil directory and run marcoil (./marcoil +cdlsS SEQUENCES/<run_name>)
+Step 2: go to the Outputs folder and put the new output files (Domains, ProbList, ProbPerState) into a new folder called <run_name>
+Step 3 (if not on LINUX computer): copy ProbList to the directory 'Marcoil_out' in 'genetic_algorithm_output'
+Step 4: Run Read_Marcoil_output.py after changing run_name to run_name
+Step 5: Adapt run_name and run Logicoil_adapted.R and rename the output figure in LOGICOIL_Source. This script makes a combined dataframe with LOGICOIL and MARCOIL results
+Step 6: To visualize the LOGICOIL scores and how this correlates with MARCOIL, APCC scores etc, run Score_plots.R
+
+Analysis (HADDOCK)
+Step 1: Create a Ideal structure by running ./generate.py <parameters.dat> <prefix> in the rosetta_bin_linux*/main/CC/Step 1: create PDB folder
+Step 2: Copy to pdbs software/haddock2.4-2021-01/pdbs folder and at an END statement at the end, rename as Ideal.pdb
+Step 3: create a mutation_list.list by running the create_mutation_list.txt.py (edit run_name) and transfer to the software/haddock2.4-2021-01/pdbs folder
+Step 4: run ./Copy_ideal.csh (if necessary adapt the number of structures generated or names in this script)
+Step 5: run ./mutate_pdb.csh to mutate the pdbs created by ./Copy_ideal.csh
+Step 6: change param.run to CC1 to allow it to start
+Step 7: run ./run_HADDOCK_CCs.csh (this takes several hours-days)
+Step 8: run ./analyze_haddock.csh, it puts the csv of the HADDOCK scores and all average Haddock structures in FINAL_out folder
+Step 9: transfer FINAL_out to normal computer and run prodigy_CC.bat (type prodigy_CC.bat to execute) on the command prompt in folder c:\Users\kim\prodigy. 
+
+
+
